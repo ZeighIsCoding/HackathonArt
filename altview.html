@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>DigiKeys</title>
+    <link rel="icon" type="image/x-icon" href="c.png">
+
+    <style>
+    /* .center {
+        margin: auto;
+        width: 5%;
+        border: 3px solid black;
+        padding: 30px;
+      } */
+      /* .center {
+        padding: 70px 0;
+        border: 3px solid green;
+        } */
+    /* .container { 
+        height: 200px;
+        position: relative;
+        border: 3px solid green; 
+    }
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    } */
+    .center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Optionally set height to center vertically */
+  * {
+  margin: 0 -20px;
+  padding: 0;
+  line-height: 0;
+}
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+}
+    </style>
+
+</head>
+
+<body style="background-color: rgb(83, 104, 120)">
+
+    <h1 style="text-align: center;"> DigiKeys (Keyboard Edition) </h1>
+    <h2 style="text-align: center;"> <i>A Hackathon Project by Payne's Grey</i> </h2>
+        <h3 style="text-align: center;">Click
+            <a href="index.html"> HERE</a>
+            to change the Piano Look.
+        </h3>
+
+        <p style="text-align: center;"> Click <a href="welcome.html"> Here </a> to Return to the Main Menu</h3>
+
+    <div class="center-container">
+        <button type="button" id="CButton" 
+            onclick="playAudio('C.mp3')"> 
+            <img src="altc.png" alt="You Failed" height="400" width="200"/> </button>
+        <button type="button" id="DButton" 
+            onclick="playAudio('D.mp3')"> 
+            <img src="altd.png" alt="You Failed" height="400" width="200"/> </button>
+        <button type="button" id="EButton" 
+            onclick="playAudio('E.mp3')"> 
+            <img src="alte.png" alt="You Failed" height="400" width="200"/> </button>
+        <button type="button" id="FButton" 
+            onclick="playAudio('F.mp3')"> 
+            <img src="altf.png" alt="You Failed" height="400" width="200"/> </button>
+        <button type="button" id="GButton" 
+            onclick="playAudio('G.mp3')"> 
+            <img src="altg.png" alt="You Failed" height="400" width="200"/> </button>
+        <button type="button" id="AButton" 
+            onclick="playAudio('A.mp3')"> 
+            <img src="alta.png" alt="You Failed" height="400" width="200"/> </button>
+        <button type="button" id="BButton" 
+            onclick="playAudio('B.mp3')"> 
+            <img src="altb.png" alt="You Failed" height="400" width="200"/> </button>
+            <audio id="audioPlayer"></audio>
+    </div>
+
+    <script>
+        function playAudio(audioPath) {
+          var audio = document.getElementById('audioPlayer');
+          audio.src = audioPath;
+          audio.play();
+        }
+        const keyButtonMap = {
+            'c': 'CButton',
+            'd': 'DButton',
+            'e': 'EButton',
+            'f': 'FButton',
+            'g': 'GButton',
+            'a': 'AButton',
+            'b': 'BButton',
+             //add a comma afterwards
+        };
+        function simulateButtonClick(buttonId) {
+            document.getElementById(buttonId).click();
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key in keyButtonMap) {
+                simulateButtonClick(keyButtonMap[event.key]);
+            }
+        });
+        
+      </script>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
